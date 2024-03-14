@@ -3,8 +3,9 @@
 int main(){
     clock_t start,stop;//time 헤더 파일을 사용하여 clock start,stop.
     //시작과 종료를 선언하기 위한 기능.
-    double duration; 
-    //수행시간을 계산하기 위한 기능을 위해 double 선언.
+    double duration; //수행시간을 계산하기 위한 기능을 위해 double 선언.
+    start = clock();  
+    //시간 측정 시작.
    int result = 0; //소수의 합을 저장하기 위한 기능.
    int i = 0, j = 0;   
     
