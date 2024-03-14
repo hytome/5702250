@@ -27,6 +27,7 @@ int main(){
    stop = clock();
    //for 문 종료후 clock stop.
    duration = (double)(stop-start)/CLOCKS_PER_SEC;
+   //초 단위로 변환.
     
 
    printf("수행시간은 %f 초 입니다.\n",duration);
