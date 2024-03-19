@@ -12,7 +12,7 @@ long factorial_rec(long n){ //20의 팩토리얼 값은 int의 값을 넘는다.
 long factorial_iter(long n){ 
     //팩토리얼을 구하기 위한 for문. 
     long result;
-    for(int i=1; i<=n; i++){
+    for(int i=1; i<n; i++){
         result  *=i;
     }
     
