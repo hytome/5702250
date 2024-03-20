@@ -36,17 +36,17 @@ int main(){
 
     start_iter = clock(); //for문으로 돌리는 반복문의 실행시간 측정 시작.
     double result_iter = power_iter(13,21); //for문으로 돌아가는 함수에 13과 21의 값 삽입
-    printf("for문으로 계산한 13 21의 제곱값은 %f입니다. \n",result_iter); //그 결과 출력.
+    printf("Power Interative result: %f\n",result_iter); //그 결과 출력.
     stop_iter = clock();//for문으로 돌리는 반복문의 실행시간 측정 종료.
     time_iter =(double)(stop_iter-start_iter)/CLOCKS_PER_SEC; //time_iter에 실행시간 측정과 종료를 초로 바꾸어 계산후 저장. 
-    printf("측정시간은 %f 입니다.\n",time_iter); //계산한 실행시간을 출력.
+    printf("Time: %f\n",time_iter); //계산한 실행시간을 출력.
 
     start_rec = clock(); //재귀함수 로 돌아가는 함수의 실행시간 측정 시작.
     double result_rec = power_rec(13,21); //재귀 함수로 돌아가는 함수에 13과 21의 값 삽입.
-    printf("재귀함수로 계산한 13 21의 제곱값은 %f 입니다. \n",result_rec);
+    printf("Power Recursive result:  %f \n",result_rec);
     stop_rec = clock(); //재귀함수 로 돌아가는 함수의 실행시간 측정 종료.
     time_rec = (double)(stop_rec-start_rec)/CLOCKS_PER_SEC;
-    printf("측정시간은 %f 입니다.",time_rec);
+    printf("Time: %f \n",time_rec);
 
 
 
