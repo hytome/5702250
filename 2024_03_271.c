@@ -14,7 +14,7 @@ polynomial poly_add1(polynomial A, polynomial B) {
 	polynomial C;
 	int Apos = 0, Bpos = 0, Cpos = 0;
 	int degree_a = A.degree;
-	int degree_b = B.degree;
+	int degree_b = B.degree;    
 	C.degree = MAX(A.degree, B.degree);
     //앞서 선언한 메크로 함수를 c.dgree에.
 
