@@ -1,14 +1,14 @@
 #define MAX_TERMS 101
 #include <stdio.h>
 #include<stdlib.h> 
-
+//차곡차곡 쌓는 방식.
 struct {
     float coef; // 계수
     int expon; // 지수(차수)
 } terms[MAX_TERMS] = { {8,3}, {7,1}, {1,0}, {10,3}, {3,2},{1,0} };
 //계산할 항들을 MaxTeRms메크로에. 
 
-int avail = 6;
+int avail = 6; //항의 숫자.
 
 // 두 개의 정수를 비교
 char compare(int a, int b)
@@ -19,20 +19,23 @@ char compare(int a, int b)
 }
 
 // 새로운 항을 다항식에 추가한다.
-void attach(float coef, int expon)
-{
+void attach(float coef, int expon) //붙이다.
+{   
     if (avail > MAX_TERMS) {
        fprintf(stderr, "항의 개수가 너무 많습니다.\n"); 
        exit(1); 
     }
     terms[avail].coef = coef;
     terms[avail++].expon = expon;
+    
+    
 }
 
 
-// C = A + B
-void poly_add2(int As, int Ae, int Bs, int Be, int* Cs, int* Ce)
-{
+
+// C = A * B
+void poly_multiply(int As, int Ae, int Bs, int Be, int* Cs, int* Ce)
+{   
     float tempcoef;
     *Cs = avail;
     while (As <= Ae && Bs <= Be)
@@ -56,10 +59,11 @@ void poly_add2(int As, int Ae, int Bs, int Be, int* Cs, int* Ce)
     // A의 나머지 항들을 이동
     for (; As <= Ae; As++)
         attach(terms[As].coef, terms[As].expon);
-    
+        
     // B의 나머지 항들을 이동
     for (; Bs <= Be; Bs++)
         attach(terms[Bs].coef, terms[Bs].expon);
+    
     *Ce = avail - 1;
 }
 
@@ -73,7 +77,7 @@ void print_poly(int s, int e)
 int main()
 {
     int As = 0, Ae = 2, Bs = 3, Be = 5, Cs, Ce;
-    poly_add2(As, Ae, Bs, Be, &Cs, &Ce);
+    poly_multiply(As, Ae, Bs, Be, &Cs, &Ce);
     print_poly(As, Ae);
     print_poly(Bs, Be);
     printf("----------------------------------------------------------------------------- \n");
