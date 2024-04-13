@@ -18,10 +18,7 @@ void inin_stack(StackType * s){
     s->capacity =  1; //현재 스택의 크기.
     s->data = (element *) malloc(s->capacity * sizeof(element));
 
-    //s->capacity = nfs
-    //s->data = (element *) malloc(sizeof(StackType)* nfs);
-    //이 경우에는 데이터 10개 설정.
-    //말록 함수로 스택의 사이즈 지정.
+   
 }
 
 //공백 상태 검출 함수
@@ -47,15 +44,13 @@ void push(StackType *s, element item){
 }
 //이제 스택에서 삭제를 하는 pop함수를 구현해 보자에요.
 element pop(StackType *s){
-    //element r (pop에서 주석. 교수님이 선호하는 방식.)
+    
     if(is_empty(s)){
         //텅 비었을 경우.
         fprintf(stderr,"스택이 텅비었습니다. \n");
         return -1; //프로그램 종료.
         }else{
-            // r = s->stack[s->top];
-            // s-> top = s->top -1;
-            // return r;
+           
             return s->data[(s->top)--];
             //텅 비지 않았을경우 top으로 선입 후출.
         }
@@ -76,31 +71,12 @@ element pop(StackType *s){
 }
 int main(){
     StackType s;
-    //StackType t; //배열 스택 두개로~
+    
     inin_stack(&s); //주소값으로 설정
     int rand_num;
-    //init_stack(&t);
-    //srand (time(NULL)); 1.랜덤 번호를 생성하고 짝수면 push 아니면 pop.
-    //int rand _num;
-    //rand_num= rand()% 100 +1;
-    //printf("random num %d \n",rand_num);
-    //if(rand_num<50) //50 보다 작으면 push 아니면 pop.
-    //if(rand_num %2==0){
-        //push(&s,rand_num);
-        //push(&t,rand_num);
-        //printf("push %d\n",rand_num);
-        //printf("push t %d\n",rand_num);
-    //}else{
-        //rand_num=pop(%s);
-        //rand_num=pop(%t);
-        //printf("pop : %d\n",rand_num);
-        //printf("pop t : %d\n",rand_num);
-    //}
+    
     srand(time(NULL));
-
-	
-
-	
+    
     for(int i=0; i<=30; i++){
 	    rand_num = rand() % 100 + 1 ;
 	    printf("current _rand_num: %d \n", rand_num);
