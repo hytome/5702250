@@ -68,7 +68,7 @@ element pop(StackType *s){
         return;
     }else{ 
 		printf("stack elements: ");
-		for(int i=1; i<= s->top ; i++){
+		for(int i=0; i<=s->top ; i++){
         printf("%d ",s->data[i]);
     }
     printf("\n");
