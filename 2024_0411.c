@@ -2,7 +2,7 @@
 #include <time.h>
 #include <stdlib.h> 
  
-#define MAX_STACK_SIZE 10
+#define MAX_STACK_SIZE 5
 
 typedef int element;
 typedef struct Stacktype {
@@ -17,17 +17,16 @@ typedef struct Stacktype {
 // delete : 할수 없음
 
 // init 
-void init(StackType* sptr, int ofs) {
-	sptr->data = (element *)malloc(sizeof(StackType) * ofs);
+void init(StackType* sptr) {
+	
 	sptr->top = -1;
-	sptr->capacity = ofs;
+	sptr->data = (element *)malloc(sptr->capacity * sizeof(element));
 }
 
 // is_full
 int is_full( StackType *sptr) {
 	if (sptr->top == sptr->capacity - 1) {
-		sptr->capacity = sptr->capacity * 2;
-		sptr->data = (element*)realloc(sptr->data, sptr->capacity * sizeof(element));
+		
 	}
 }
 
@@ -39,7 +38,11 @@ int is_empty(StackType *sptr) {
 void push(StackType *sptr, element item) {
 
 	if (is_full(sptr)) {
+        
+        sptr->capacity *= 2;
+		sptr->data = (element*)realloc(sptr->data, sptr->capacity * sizeof(element));
 		fprintf(stderr, "Stack is full\n");
+
 		return;
 	}
 	else {
@@ -79,25 +82,24 @@ element peek(StackType * sptr) {
 
 int main() {
 
-	StackType s;
+	StackType sptr;
 	int rand_num;
-	int numOfStack;
+	
 
 	srand(time(NULL));
 
-	printf("How many element Stack has?");
-	scanf("%d", &numOfStack,4);
+	
 
-	init(&s, numOfStack);
+	init(&sptr);
     for(int i=0; i<=30; i++){
 	rand_num = rand() % 100 + 1 ;
 	printf("%d \n", rand_num);
 	if (rand_num % 2 == 0) {
-		push(&s, rand_num);
+		push(&sptr, rand_num);
 		printf("Push Stack S %d\n", rand_num);
 	}
 	else {
-			rand_num = pop(&s);
+			rand_num = pop(&sptr);
 			printf("Pop Stack S %d\n", rand_num);
 	}
 
