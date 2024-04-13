@@ -110,7 +110,7 @@ int main(){
             printf_stack(&s);
 	    }else {
                 printf("Pop Stack S %d\n", rand_num);
-			
+                printf_stack(&s);
                 rand_num = pop(&s);
 			   
 	}

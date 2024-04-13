@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <time.h>
 #include <stdlib.h>
-#define MAX_STACK_SIZE 100
+#define MAX_STACK_SIZE 5
 
 typedef int element;
 element stack[MAX_STACK_SIZE];
@@ -18,7 +18,7 @@ int is_full(){
 //삽입 함수.
 void push(element item){
     if(is_full()){
-        fprintf(stderr,"스택 포화 에러!\n"); 
+        fprintf(stderr,"stack is full!\n"); 
         //이걸 측정하기 위한 is_full;
         return;
     }else stack[++top] = item;
@@ -28,15 +28,15 @@ void push(element item){
 element pop(){
     //pop:쌓인 스텍값을 방출(삭제하는 함수.)
     if(is_empty()){
-        fprintf(stderr,"스택 공백 에러\n");
-        exit(1);
+        fprintf(stderr,"stack is empty\n");
+        return -1;
     } else return stack[top--];
 }
 
 element peek(){  
     //peek= 삭제는 하지 않고 보기만 하는 연산.
     if(is_empty()){
-        fprintf(stderr,"스택 공백 에러\n");
+        fprintf(stderr,"stack is empty\n");
         exit(1);
     } else return stack[top];
 }
@@ -46,8 +46,8 @@ void printf_stack(){
         return;
     }
     printf("stack elements : ");
-    for(int i=1; i<= top; i++){
-        printf("%d",stack[i]);
+    for(int i=0; i<= top; i++){
+        printf("%d ",stack[i]);
     }
     printf("\n");
 }
@@ -61,15 +61,19 @@ int main(){
             if((rand_num%2)==0){
                 push(rand_num);
                 printf("push:%d\n",rand_num);
+                printf_stack();
 
             }else{
-        
-                 data = pop();
-                printf("pop: %d,",data);
+                printf("pop:%d\n",rand_num);
+                printf_stack();
+                data=pop();
+
+            
+                
 
     }
     }
-    printf_stack();
+
 
 
 }
