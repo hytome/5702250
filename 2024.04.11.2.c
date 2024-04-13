@@ -51,7 +51,7 @@ element pop(StackType *s){
     if(is_empty(s)){
         //텅 비었을 경우.
         fprintf(stderr,"스택이 텅비었습니다. \n");
-        exit(1); //프로그램 종료.
+        return -1; //프로그램 종료.
         }else{
             // r = s->stack[s->top];
             // s-> top = s->top -1;
@@ -60,6 +60,20 @@ element pop(StackType *s){
             //텅 비지 않았을경우 top으로 선입 후출.
         }
     }
+
+
+    void printf_stack(StackType * s){
+    if(is_empty(s)){
+        printf("Stack is empty\n");
+        return;
+    }else{ 
+		printf("stack elements: ");
+		for(int i=1; i<= s->top ; i++){
+        printf("%d ",s->data[i]);
+    }
+    printf("\n");
+}
+}
 int main(){
     StackType s;
     //StackType t; //배열 스택 두개로~
@@ -88,17 +102,19 @@ int main(){
 
 	
     for(int i=0; i<=30; i++){
-	rand_num = rand() % 100 + 1 ;
-	printf("%d \n", rand_num);
-	if (rand_num % 2 == 0) {
-		push(&s, rand_num);
-		printf("Push Stack S %d\n", rand_num);
+	    rand_num = rand() % 100 + 1 ;
+	    printf("current _rand_num: %d \n", rand_num);
+	    if (rand_num % 2 == 0) {
+		    push(&s, rand_num);
+		    printf("Push Stack S %d\n", rand_num);
+            printf_stack(&s);
+	    }else {
+                printf("Pop Stack S %d\n", rand_num);
+			
+                rand_num = pop(&s);
+			   
 	}
-	else {
-			rand_num = pop(&s);
-			printf("Pop Stack S %d\n", rand_num);
-	}
-    
+         
 }
 return 0;
 }

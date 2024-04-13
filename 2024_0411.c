@@ -24,10 +24,8 @@ void init(StackType* sptr) {
 }
 
 // is_full
-int is_full( StackType *sptr) {
-	if (sptr->top == sptr->capacity - 1) {
-		
-	}
+int is_full(StackType *sptr) {
+	return (sptr->top == sptr->capacity - 1);
 }
 
 int is_empty(StackType *sptr) {
@@ -41,26 +39,24 @@ void push(StackType *sptr, element item) {
         
         sptr->capacity *= 2;
 		sptr->data = (element*)realloc(sptr->data, sptr->capacity * sizeof(element));
-		fprintf(stderr, "Stack is full\n");
-
-		return;
+		
 	}
 	else {
-		sptr->top = sptr->top + 1;
-		sptr->data[sptr->top] = item;
+		sptr->data[++(sptr->top)] = item;
 	}
 }
 
 element pop(StackType *sptr) {
 	element r;
 	if (is_empty(sptr)) {
-		fprintf(stderr, "stack is empty\n");
+		fprintf(stderr, "스택공백 에러.\n");
 		return -1;
 	}
 	else {
 		// r = sptr->stack[sptr->top];
 		// sptr->top = sptr->top - 1;
 		// return r;
+		
 		return (sptr->data[(sptr->top)--]);
 	}
 }
@@ -69,7 +65,7 @@ element peek(StackType * sptr) {
 	
 	element r;
 	if (is_empty(sptr)) {
-		fprintf(stderr, "stack is empty\n");
+		fprintf(stderr, "stack is empty1\n");
 		return -1;
 	}
 	else {
@@ -78,6 +74,18 @@ element peek(StackType * sptr) {
 		// return r;
 		return (sptr->data[sptr->top]);
 	}
+}
+void printf_stack(StackType * sptr){
+    if(is_empty(sptr)){
+        printf("Stack is empty\n");
+        return;
+    }else{ 
+		printf("stack elements: ");
+		for(int i=1; i<= sptr->top ; i++){
+        printf("%d\n",sptr->data[i]);
+    }
+    printf("\n");
+}
 }
 
 int main() {
@@ -92,20 +100,25 @@ int main() {
 
 	init(&sptr);
     for(int i=0; i<=30; i++){
-	rand_num = rand() % 100 + 1 ;
-	printf("%d \n", rand_num);
-	if (rand_num % 2 == 0) {
-		push(&sptr, rand_num);
-		printf("Push Stack S %d\n", rand_num);
-	}
-	else {
-			rand_num = pop(&sptr);
-			printf("Pop Stack S %d\n", rand_num);
+		rand_num = rand() % 100 + 1 ;
+		int data;
+		printf("current rand_num:%d \n", rand_num);
+			if (rand_num % 2 == 0) {
+				push(&sptr, rand_num);
+				printf_stack(&sptr);
+				printf("Push Stack S %d\n", rand_num);
+				
+			}
+			else {
+				printf("pop Stack S %d\n",rand_num);
+				printf_stack(&sptr);
+				data=pop(&sptr);
+			
 	}
 
-	
+		
 
 }
-
+ 		
 return 0;
 }
