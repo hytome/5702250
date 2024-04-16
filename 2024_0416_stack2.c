@@ -88,7 +88,9 @@ int Cal(char arr[]){
 
 int main(void){
    char arrression[MAX_STACK_SIZE];//크기가 MAX_STACK_SIZE인 배열을 선언
-   int num;scanf("%d",&num);//정수를 입력받음
+   int num;
+   printf("수식의 개수를 입력하세요:");
+   scanf("%d",&num);//정수를 입력받음
    getchar();
 
    for(int i=0;i<num;i++){//입력받은 정수만큼 반복
