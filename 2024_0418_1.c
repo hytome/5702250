@@ -122,15 +122,18 @@ int main() {
     char postfixExp[100] = ""; 
     char exp[100] = ""; 
     int result;
-    printf("기능을 선택해 주세요 \n"); //이아이는 while문 밖으로.
+    char input[100];
+    printf("기능을 선택해 주세요 \n");
     while(1) {
         printf("\n1. 중위 표기 수식 입력\n2. 후위 표기식으로 변환\n3. 수식 계산\n4. 프로그램 종료\n선택: ");
-        scanf("%d", &choice);
+        fgets(input, sizeof(input), stdin);
+        sscanf(input, "%d", &choice);
 
         switch(choice) {
             case 1:
                 printf("중위 표기 수식을 입력하세요: ");
-                scanf(" %[^\n]%*c", exp); // 
+                fgets(exp, sizeof(exp), stdin);
+                exp[strcspn(exp, "\n")] = 0; // 개행 문자 제거
                 printf("중위 표기법: %s\n", exp);
                 break;
             case 2:
@@ -138,7 +141,7 @@ int main() {
                     printf("먼저 중위 표기 수식을 입력해주세요.\n");
                     break;
                 }
-                strcpy(postfixExp, exp); // 1에서 입력한거 복사하기 
+                strcpy(postfixExp, exp);
                 infixToPostfix(postfixExp);
                 printf("\n후위 표기법: %s\n", postfixExp);
                 break;
@@ -147,7 +150,7 @@ int main() {
                     printf("먼저 후위 표기식으로 변환해주세요.\n");
                     break;
                 }
-                result = evaluatePostfix(postfixExp); // 후위 표기식 계산
+                result = evaluatePostfix(postfixExp);
                 printf("\n수식의 값: %d\n", result);
                 break;
             case 4:
@@ -158,6 +161,4 @@ int main() {
         }
     }
     return 0;
-
-    }
-
+}
