@@ -54,7 +54,7 @@ ListNode* delete_node(ListNode *head, char *value, ListNode **deleted_head) {
     printf("과일이 삭제되었습니다.\n");
     return head;
 }
-
+//출력을 위한 함수문들 
 void print_list(ListNode *head) {
     for (ListNode *p = head; p != NULL; p = p->link) {
         printf("%s->", p->data);
@@ -85,7 +85,7 @@ int main() {
         head = insert_last(head, initial_fruits[i]);
     }
 
-    while (1) {
+    while (1) { //반복문 안에 메뉴를 넣어 값을 계속 받아올 수  있도록 구현.
         printf("\n메뉴:\n");
         printf("1. 과일 추가\n");
         printf("2. 과일 삭제\n");
