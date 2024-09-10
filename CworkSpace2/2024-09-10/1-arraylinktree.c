@@ -86,7 +86,7 @@ void PlaceNode(TreeNode *node, int direction, int data) {
 }
 
 void GenerateLinkTree(TreeNode *root) {
-    
+    //앞선 placeNode를 이용해 좌,우 를 구분 지어 노드 생성.
     PlaceNode(root, 0, 2);
     PlaceNode(root, 1, 9);
     PlaceNode(root->left, 0, 3);
@@ -145,11 +145,12 @@ int main() {
     // 루트 노드 생성 1로 초기화 
     root->left = root->right = NULL;
 
-    // 각각의 방식(array법, link법)에 따른 트리 생성
+    // 각각의 방식(array법, link법)에 따른 트리 호출
     GenerateArrayTree(arr);
     GenerateLinkTree(root);
+    // 각각의 방식(array법, link법)에 따른 트리 순회 
     printf("\n");
-    // 각 생성한 트리 순회
+    
     ArrayOrders(arr);
     LinkOrders(root);
 
