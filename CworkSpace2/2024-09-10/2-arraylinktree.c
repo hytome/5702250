@@ -13,6 +13,19 @@ void GenerateArrayTree(int *tree) {
     }
 }
 
+void PrintArray(int *tree) {
+    printf("원래 배열 구조:\n");
+    printf("Index: ");
+    for (int i = 0; i < 15; i++) {
+        printf("%2d ", i);
+    }
+    printf("\nValue: ");
+    for (int i = 0; i < 15; i++) {
+        printf("%2d ", tree[i]);
+    }
+    printf("\n");
+}
+
 void ArrayPreOrder(int *tree) {
     int order[15] = {0, 1, 3, 7, 8, 4, 9, 10, 2, 5, 11, 12, 6, 13, 14};
     for (int i = 0; i < 15; i++) {
@@ -121,10 +134,13 @@ int main() {
     GenerateArrayTree(arr);
     GenerateLinkTree(root);
 
+    // 원래 배열 구조 출력
+    PrintArray(arr);
+
     // 각 생성한 트리 순회
-    printf("배열 기반 트리 순회:\n");
+    printf("\n-배열 기반 트리 순회-\n");
     ArrayOrders(arr);
-    printf("\n연결 리스트 기반 트리 순회:\n");
+    printf("\n-연결 리스트 기반 트리 순회-\n");
     LinkOrders(root);
 
     return 0;
