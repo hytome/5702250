@@ -1,0 +1,13 @@
+print("hello")
+print("Hello\"how\"")
+print()
+print("you")
+print("i like the \\\ character")
+print("i like the \\ chracter")
+print("/ \\ // \\\\ /// \\\\\\")
+print("\ta\tb\tc")
+print("\\\\")
+print("'")
+print("\"\"\"")
+print("C:\nin\the downward spiral")
+#tab= 6space character
