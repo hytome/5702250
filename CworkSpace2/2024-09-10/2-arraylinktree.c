@@ -7,6 +7,7 @@ typedef struct TreeNode {
 } TreeNode;
 
 void GenerateArrayTree(int *tree) {
+    
     int list[15] = {1, 2, 9, 3, 5, 10, 13, 4, 6, 7, 8, 11, 12, 14, 15};
     for (int i = 0; i < 15; i++) {
         tree[i] = list[i];
@@ -27,6 +28,7 @@ void PrintArray(int *tree) {
 }
 
 void ArrayPreOrder(int *tree) {
+    
     int order[15] = {0, 1, 3, 7, 8, 4, 9, 10, 2, 5, 11, 12, 6, 13, 14};
     for (int i = 0; i < 15; i++) {
         printf("%d ", tree[order[i]]);
