@@ -1,0 +1,6 @@
+print("This quote is from")
+print("Irish poet oscar wide:")
+print()
+print("\"Music makes one feel so romantic")
+print("- at least it always ")
+print("which is the same thing nowadays.\"")
