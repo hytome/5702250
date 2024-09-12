@@ -17,7 +17,7 @@ void Push(StackNode **top, TreeNode *treeNode) {
     newNode->treeNode = treeNode;
     newNode->next = *top;
     *top = newNode;
-    printf("push(%d) ", treeNode->data);
+    printf("Push: %d\n", treeNode->data);
 }
 
 TreeNode *Pop(StackNode **top) {
@@ -26,7 +26,7 @@ TreeNode *Pop(StackNode **top) {
     TreeNode *treeNode = temp->treeNode;
     *top = (*top)->next;
     free(temp);
-    printf("pop(%d) ", treeNode->data);
+    printf("Pop: %d\n", treeNode->data);
     return treeNode;
 }
 
@@ -35,17 +35,13 @@ int IsEmpty(StackNode *top) {
 }
 
 void LinkedPreOrder(TreeNode *root) {
-    //전위  순회  과정
     StackNode *stack = NULL;
     Push(&stack, root);
     while (!IsEmpty(stack)) {
         TreeNode *node = Pop(&stack);
         if (node) {
-            printf("visit(%d) ", node->data);
-            printf("\n");
+            printf("Visit: %d\n", node->data);
             Push(&stack, node->right);
-            //전위 순회 과정에서 오른쪽 노드를 먼저 방문하고 왼쪽 노드를 방문하는 이유는 스택의 특성 때문
-            //스택은 선입후출 구조이기 때문 
             Push(&stack, node->left);
         }
     }
@@ -53,66 +49,45 @@ void LinkedPreOrder(TreeNode *root) {
 }
 
 void LinkedInOrder(TreeNode *root) {
-    //중위 순회 과정
     StackNode *stack = NULL;
     TreeNode *current = root;
     while (!IsEmpty(stack) || current) {
         if (current) {
             Push(&stack, current);
             current = current->left;
-            //왼쪽 자식으로 이동.
         } else {
-            //중위 순회 과정에서 왼쪽 노드를 모두 방문한 후 오른쪽 노드를 방문하는 이유는 스택의 특성 때문
-            //스택은 선입후출 구조이기 때문 
             current = Pop(&stack);
-            printf("visit(%d) ", current->data);//방문한 노드 출력
-            
-            printf("\n");
-            current = current->right;//방문한 노드의 오른쪽 자식으로 이동. 
+            printf("Visit: %d\n", current->data);
+            current = current->right;
         }
     }
     printf("\n");
 }
 
 void LinkedPostOrder(TreeNode *root) {
-    //후위 순회 과정
     StackNode *stack1 = NULL, *stack2 = NULL;
-    //첫번째 스택:노드를 저장하고 왼쪽과 오른쪽 자식을 푸시 합니다.
-    //두번째 스택: 노드를 팝하고 방문합니다.
     Push(&stack1, root);
-    //먼저 루트 노드를 스택1에 푸시 
     while (!IsEmpty(stack1)) {
         TreeNode *node = Pop(&stack1);
-        //스택1에서 노드를 꺼내서 방문
-        //스택1에서 노드를 팝하고 스택2에 푸시
         if (node) {
-            
             Push(&stack2, node);
-            //스택2에 푸시.
             if (node->left) Push(&stack1, node->left);
-          //팝한 노드의 왼쪽 자식을 스택1에 푸시
             if (node->right) Push(&stack1, node->right);
-            //팝한 노드의 오른쪽 자식을 스택1에 푸시
         }
     }
-    //두번째 스택에서 노드를 팝하고 방문 
     while (!IsEmpty(stack2)) {
-        //스택2가 비어있지 않는 동안 반복합니다.
         TreeNode *node = Pop(&stack2);
-        //방문한 노드 출력
-        printf("visit(%d) ", node->data);
-        
-        printf("\n");
+        printf("Visit: %d\n", node->data);
     }
     printf("\n");
 }
 
 void LinkOrders(TreeNode *root) {
-    printf("스택기반 전위 순회 : ");
+    printf("스택기반 전위 순회 : \n");
     LinkedPreOrder(root);
-    printf("스택기반 중위 순회: ");
+    printf("스택기반 중위 순회: \n");
     LinkedInOrder(root);
-    printf("스택기반 후위 순회: ");
+    printf("스택기반 후위 순회: \n");
     LinkedPostOrder(root);
 }
 
