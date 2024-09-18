@@ -20,6 +20,11 @@ def egg_bottom():
     print(" \\______/")
 
 
+# 구분선을 출력하는 함수
+def line():
+    print("+--------+")
+
+
 # 계란 도형 전체를 출력하는 함수
 def egg():
     egg_top()
@@ -29,8 +34,8 @@ def egg():
 
 # 찻잔 도형을 출력하는 함수
 def tea_cup():
-    egg_top()
-    print("+--------+")
+    egg_bottom()
+    line()
     print()
 
 
@@ -45,8 +50,10 @@ def stop_sign():
 # 모자 도형을 출력하는 함수
 def hat():
     egg_top()
-    print("+--------+")
+    line()
     print()
+    
+
 
 
 if __name__ == "__main__":

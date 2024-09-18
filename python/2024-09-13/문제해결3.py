@@ -1,0 +1,7 @@
+print('This is a test of your')
+print('knowledge of "quotes" used')
+print("in 'string literals.'")
+print()
+print('You\'re bound to "get it right"')
+print('if you read the section on')
+print("''quotes.''")
