@@ -106,16 +106,25 @@ TreeNode *Dequeue(Queue *queue) {
 int IsQueueEmpty(Queue *queue) {
     return queue->front == NULL;
 }
+//트리의 레벨 순회는 큐를 사용하여 트리의 각레벨을 순차적으로 방문하는 방법이다.
 
 void LevelOrder(TreeNode *root) {
-    Queue queue = {NULL, NULL};
-    Enqueue(&queue, root);
+    Queue queue = {NULL, NULL};// 큐 초기화
+    Enqueue(&queue, root); //루트 노드를 큐에 삽입.
+    //루트 노드는 이경우에 1이다.
     while (!IsQueueEmpty(&queue)) {
+        //큐가 비어있지 않는 동안 반복해라 
         TreeNode *node = Dequeue(&queue);
+        //큐의 앞에서 노드를 제거하고 반환.
+        //초기 상태일 경우 1이 제거된다.
         if (node) {
-            printf("visit(%d) ", node->data);
+            //노드가 null이 아닐경우 
+            printf("visit(%d) ",node->data);
+            //방문한 노드의 데이터 출력.
             Enqueue(&queue, node->left);
+            //왼쪽 자식 노드를 큐에 삽입. 초기 상태일 경우 2가 삽입된다.
             Enqueue(&queue, node->right);
+            //오른쪽 자식 노드를 큐에 삽입. 초기 상태일 경우 3이 삽입된다.
         }
     }
     printf("\n");
@@ -124,18 +133,26 @@ void LevelOrder(TreeNode *root) {
 void LinkOrders(TreeNode *root) {
     printf("큐 기반 레벨 순회: ");
     LevelOrder(root);
+    //레벨 순회 함수 호출. 메인함수에서 선언한 1부터  시작된다.
 }
 
 TreeNode* CreateNode(int data) {
     TreeNode* newNode = (TreeNode*)malloc(sizeof(TreeNode));
+    //말록할당을 이용하여 새로운 treenode를 생성하고 그포인터를 newnode에 저장한다.
+    //newnode는 새로운 트리 구조를 생성하고 초기화 하기 위한 용도이다. 
+    //이렇게 형성된 트리 구조가 레벨순환 과정에서 큐에 연결된다.
     newNode->data = data;
+    //newnode의 data 필드에 매개변수로 받은 data를 저장한다.
     newNode->left = newNode->right = NULL;
+    //newnode의 left와 right 필드를 null로 초기화하여 초기상태에서는 자식이 없다는 것을 나타냅니다.
     return newNode;
 }
 
 void PlaceNode(TreeNode *node, int direction, int data) {
+    //노드의 위치를 정하기 위한 기능.
     if (direction == 0) {
         node->left = CreateNode(data);
+        //GenratelinkTree 에서 정해진 0과 1로 왼쪽 오른쪽을 정하고 그에 따라 노드를 생성하여 연결한다.
     } else {
         node->right = CreateNode(data);
     }
