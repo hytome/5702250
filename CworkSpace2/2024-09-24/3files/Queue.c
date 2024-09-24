@@ -29,3 +29,13 @@ TreeNode* Dequeue(Queue *queue) {
 int IsQueueEmpty(Queue *queue) {
     return queue->front == NULL;
 }
+
+int QueueSize(Queue *queue) {  // QueueSize 함수 정의 추가
+    int size = 0;
+    QueueNode *current = queue->front;
+    while (current != NULL) {
+        size++;
+        current = current->next;
+    }
+    return size;
+}

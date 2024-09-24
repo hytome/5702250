@@ -5,7 +5,8 @@
 
 int main() {
     TreeNode *root = (TreeNode *)malloc(sizeof(TreeNode));
-    root->data = 10;
+    int NumberOfLeafNodes(TreeNode *root);
+    root->data = 1;
     root->left = root->right = NULL;
 
     GenerateLinkTree(root);
@@ -26,6 +27,9 @@ int main() {
 
     int height = Height(root);
     printf("트리의 높이: %d\n", height);
+
+    int leafCount = NumberOfLeafNodes(root);
+    printf("트리의 리프 노드 개수: %d\n", leafCount);
 
     return 0;
 }
