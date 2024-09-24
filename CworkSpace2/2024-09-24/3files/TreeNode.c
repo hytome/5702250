@@ -18,7 +18,7 @@ void PlaceNode(TreeNode *node, int direction, int data) {
 }
 
 void GenerateLinkTree(TreeNode *root) {
-   PlaceNode(root, 0, 2);
+    PlaceNode(root, 0, 2);
     PlaceNode(root, 1, 9);
 
     PlaceNode(root->left, 0, 3);

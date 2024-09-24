@@ -51,6 +51,7 @@ int SumTree(TreeNode *root) {
 }
 
 int NumberOfLeafNodes(TreeNode *root) {
+    //자식이 없는 노드.
     if (root == NULL) return 0;
     int leafCount = 0;
     Queue queue = {NULL, NULL};
