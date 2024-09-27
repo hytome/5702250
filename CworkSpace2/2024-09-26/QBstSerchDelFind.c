@@ -11,15 +11,22 @@ typedef struct TreeNode {
 // 스택 구조체 및 함수 선언
 typedef struct StackNode {
     struct TreeNode* treeNode;
+    //TreeNode 와 StackNode를 서로 연결하기 위한 용도입니다.
     struct StackNode* next;
+    //stackNode의 Next 즉 다음노드를 가르키는(연결하기 위한)용도입니다.
 } StackNode;
 
 typedef struct Stack {
+    //Stack의 구조체 자체를 가르키는 용도입니다.
     StackNode* top;
+    //Stack의 가장 높은 노드를 가르키는 용도입니다.
 } Stack;
 
+//Stack을 수행할 함수들 선언 파트 입니다.
+//stack 형태의 구조체를 생성하는 함수입니다.
 Stack* CreateStack();
 void Push(Stack* stack, struct TreeNode* treeNode);
+//Stack에 노드를 추가하는 (push) 함수입니다.
 struct TreeNode* Pop(Stack* stack);
 int IsStackEmpty(Stack* stack);
 void FreeStack(Stack* stack);
