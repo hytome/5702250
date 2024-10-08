@@ -29,6 +29,7 @@ int Height(TreeNode *root) {
         while (nodeCount > 0) {
             TreeNode *node = Dequeue(&queue);
             if (node->left) Enqueue(&queue, node->left);
+            //둘의 높이계산
             if (node->right) Enqueue(&queue, node->right);
             nodeCount--;
         }
