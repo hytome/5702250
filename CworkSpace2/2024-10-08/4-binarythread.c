@@ -1,6 +1,9 @@
 //스레드 이진트리는 기존 이진트리에서 선행자와 후속자를 가리키는 포인터를 추가한다.
 //이렇게 추가된 선행자와 후속자로,메모리의 사용을 줄이고 성능개선,특히 스택이나 재귀를 사용하지 않고 순회할수 있게 한다.
 //이러한 스레드 이진 트리를 이용하여 삽입한 트리를 스레드 이진 트리로 중위 순회 해보자.
+//-개념정리.
+//선행자: 현재 노드 이전에 방문한 노드.
+//후속자: 현재 노드 이후에 방문할 노드.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -49,6 +52,7 @@ ThreadNode* InsertThreadTree_Node(ThreadNode* root, int data) {
         //왼쪽 오른쪽 포인터 초기화
         newNode->lthread = newNode->rthread = 1;
         //스레드 플래그 초기화 (1일 경우에 스레드니까.)
+        //이렇게 1로 값을 설정해야 반복문이 돌아간다.
         return newNode;
     }
     if (data < root->data) {
@@ -58,6 +62,7 @@ ThreadNode* InsertThreadTree_Node(ThreadNode* root, int data) {
             root->left = InsertThreadTree_Node(root->left, data);
             //(재귀 호출)왼쪽 자식으로 이동하여 서브트리에 대한 삽입 작업 수행.
         } else {
+            //즉 lthread == 1이라면.
             //스레드가 1이면 자식 노드가 없다는 뜻이니까.
             ThreadNode* newNode = (ThreadNode*)malloc(sizeof(ThreadNode));
             //새로운 노드 생성
@@ -73,8 +78,10 @@ ThreadNode* InsertThreadTree_Node(ThreadNode* root, int data) {
             //이제 현재 노드의 왼쪽 스레드 플래그를 0으로 설정하여 자식 노드가 있음을 표시 하고.
             root->left = newNode;
             //현재 노드의 left를 새로운 노드로 설정.
+            //이렇게 null값을 가지는 노드를 가지고 새로운 값을 삽입하여 응용하는것.
         }
     } else {//오른쪽 삽입 파트.
+        //오른쪽 삽입- 삽입할 데이터가 현재 노드의 데이터 보다 크다면.
         if (root->rthread == 0) {
             //스레드가 0이면 자식 노드가 있다는 뜻이니까.
             root->right = InsertThreadTree_Node(root->right, data);
@@ -120,6 +127,7 @@ ThreadNode* GenerateThreadTree(int inputData[], int size) {
 
 // 일반 이진 트리 중위 순회
 void BinaryTreeInOrder(TreeNode* root) {
+    //일반 이진트리 중위 순회는 재귀함수로 구현.
     if (root == NULL) return;
     BinaryTreeInOrder(root->left);
     printf("%d ", root->data);
@@ -135,18 +143,22 @@ void ThreadTreeInOrder(ThreadNode* root) {
 
     ThreadNode* ptr = root;
     //시작-먼저 가장 왼쪽 노드로 이동해야함.
+    //1-중위 순회에 첫번째 단게는 왼쪽 서브트리 방문 이기때문. 
     while (ptr->lthread == 0) {
         //왼쪽 스레드가 0일 동안 왼쪽 자식으로 계속 이동.
+        //스레드 == 0.해당 노드의 왼쪽 포인터가 실제 자식 노드를 가르키고 있다는것 .
         ptr = ptr->left;
+        //왼쪽 자식이 존재하는 경우 가장 왼쪽에 있는 노드를 방문. 이것이 바로 중위 순회.
     }
 
     while (ptr != NULL) {
+        //이제 중위순회에서 현재 노드를 방문해야 하는 단계. 
         printf("%d ", ptr->data);
         //현재 노드의 데이터를 출력.
-        //중위 순회는 왼쪽 자식 현재 오른쪽 자식 순으로 방문.
+        //중위 순회에서 현재 왼쪽->현재. 이제 이 순서 까지 온것.
         if (ptr->rthread == 1) {
             //스레드가 1인 경우. 이는 중위 순회에서 후속자를 가르킨다.
-            //즉 후속자가 스레드인 경우 
+            //즉 후속자가 스레드인 경우 (자식노드가 없는 경우. )
             //따라서 ptr을 right로 이동하여 다음 노드로 이동.
             ptr = ptr->right;
         } else {
@@ -164,7 +176,7 @@ void ThreadTreeInOrder(ThreadNode* root) {
 int main() {
     int inputData[] = {4, 1, 9, 13, 15, 3, 6, 14, 7, 10, 12, 2, 5, 8, 11};
     int size = sizeof(inputData) / sizeof(inputData[0]);
-    // 입력한 데이터 값을 먼저 확인. 순회가 이루어져야 하니까.
+    // 입력한 데이터 값을 먼저 확인. 순회가 잘 이루어 지는지 확인하는 용도.
     printf("inputData: ");
     for (int i = 0; i < size; i++) {
         printf("%d ", inputData[i]);
