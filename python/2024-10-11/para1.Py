@@ -1,4 +1,4 @@
- def write_on_board(times):
+def write_on_board(times):
     for i in range(0, times):
         print("I will not sleep through my education")
 
