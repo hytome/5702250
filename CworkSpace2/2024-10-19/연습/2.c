@@ -296,7 +296,6 @@ void Dfs(Graph* graph, int startVertex, int target) {
         }
 
         // 오름차순으로 정렬한 후, 내림차순으로 스택에 푸시하여 작은 정점이 먼저 방문되도록 함
-        //버블 정렬:인접한 두요소를 비교하며 필요(조건)에 따라 교환하는것.
         for (int i = 0; i < count - 1; i++) {
             for (int j = i + 1; j < count; j++) {
                 if (neighbors[i] < neighbors[j]) { // 내림차순 정렬 조건
@@ -349,7 +348,6 @@ void Bfs(Graph* graph, int startVertex, int target) {
         }
 
         // 인접 정점들을 오름차순으로 정렬하기 위해 버블 정렬 사용
-        //버블 정렬:인접한 두요소를 비교하며 필요(조건)에 따라 교환하는것.
         for (int i = 0; i < count - 1; i++) {
             for (int j = i + 1; j < count; j++) {
                 if (neighbors[i] > neighbors[j]) { // 오름차순 정렬 조건
