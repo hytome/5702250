@@ -6,7 +6,7 @@
 ## 실행 결과
 아래는 프로그램 실행 결과의 캡처 화면입니다.
 
-![실행 결과](./8-findmst.png) 
+![실행 결과](./8-findmstimg.png) 
 
 ## 주요 함수
 - `QuickKruskal`: QuickSort를 이용한 Kruskal 알고리즘 구현
