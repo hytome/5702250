@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-#include "heap.h"
+#include "Heap.h"
 
 HeapType* create_heap() {
 	return (HeapType*)malloc(sizeof(HeapType));

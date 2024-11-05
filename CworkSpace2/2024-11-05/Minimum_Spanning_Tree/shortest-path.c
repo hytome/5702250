@@ -3,7 +3,7 @@
 
 #include "list.h"
 #include "graph.h"
-#include "heap.h"
+#include "Heap.h"
 
 int dist[MAX_VERTICES], prev[MAX_VERTICES];
 

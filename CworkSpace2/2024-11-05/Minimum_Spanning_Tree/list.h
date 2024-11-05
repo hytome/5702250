@@ -5,7 +5,7 @@ typedef struct {
 	int weight;
 } element;
 
-typedef struct DListNode {	// 이중연결 노드 타입
+typedef struct DListNode {	
 	element vertex;
 	struct DListNode* llink;
 	struct DListNode* rlink;

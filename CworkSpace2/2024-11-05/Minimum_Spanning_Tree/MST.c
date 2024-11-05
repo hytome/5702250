@@ -3,10 +3,10 @@
 
 #include "list.h"
 #include "graph.h"
-#include "heap.h"
+#include "Heap.h"
 
 int parent[MAX_VERTICES];
-void set_init(n) {
+void set_init(int n) {
 	for (int i = 0; i < n; i++)
 		parent[i] = -1;
 }
