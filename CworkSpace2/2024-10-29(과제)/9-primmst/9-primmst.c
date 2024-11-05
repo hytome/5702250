@@ -8,7 +8,7 @@
 // 그래프를 나타내는 구조체입니다.
 // 정점의 개수와 가중치 행렬을 가집니다.
 typedef struct GraphType {
-    int n;  // 그래프의 정점 개수를 나타냅니다.
+    int n;  // 그래프의 정점 개수를 나타냅니다..
     int weight[MAX_VERTICES][MAX_VERTICES];  // 가중치 행렬을 저장하는 용도.
 } GraphType;
 
