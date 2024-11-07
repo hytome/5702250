@@ -18,7 +18,7 @@
 다음은 최소 힙을 구현한 코드의 일부입니다.
 
 ![최소 힙 구조체 구현 코드](./struct-heap.png)
-![최소 힙 함수 구현 코드](./min-heap.png)
+![최소 힙 함수 구현 코드](./Min-heap.png)
 ![Dijkstra 알고리즘에서 최소 힙 구현 코드](./dijk-heap1.png)
 ![Dijkstra 알고리즘에서 최소 힙 구현 코드2](./dijk-heap2.png)
 
