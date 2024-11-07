@@ -9,7 +9,7 @@
 ## 실행 결과 예시
 아래는 프로그램을 실행한 결과 입니다:
 
-![실행 결과](./result-img.png)
+![실행 결과](./img/result.png)
 
 ## 주요 구현 내용
 본 프로그램의 핵심은 최소 힙을 이용하여 효율적으로 최단 경로를 계산하는 부분입니다.
@@ -18,22 +18,22 @@
 다음은 최소 힙을 구현한 코드의 일부입니다.
 
 -아래 이미지는 최소 힙 구조체를 구현한 코드입니다.
-![최소 힙 구조체 구현 코드](./struct-heap.png)
+![최소 힙 구조체 구현 코드](./img/struct-heap.png)
 
 - 아래 이미지는 최소 힙 함수를 구현한 코드입니다.
-![최소 힙 함수 구현 코드](./Min-heap.png)
+![최소 힙 함수 구현 코드](./img/min-heap1.png)
+![최소 힙 함수 구현 코드2](./img/min-heap2.png)
+![최소 힙 함수 구현 코드3](./img/min-heap3.png)
 
 - 아래 이미지는 Dijkstra 알고리즘에서 최소 힙을 구현한 코드입니다.
-![Dijkstra 알고리즘에서 최소 힙 구현 코드](./dijk-heap1.png)
-![Dijkstra 알고리즘에서 최소 힙 구현 코드2](./dijk-heap2.png)
+![Dijkstra 알고리즘에서 최소 힙 구현 코드1](./img/dijk-heap.png)
 
 ## 파일 구조
 - `10-dijkstra_bonus.c`: Dijkstra 알고리즘과 최소 힙을 구현한 C 언어 소스 파일입니다.
 - `result-img.png`: 프로그램 실행 결과 캡처 이미지입니다.
 - `struct-heap.png`: 최소 힙 구조체 구현 코드 캡처 이미지입니다.
 - `min-heap.png`: 최소 힙 함수 구현 코드 캡처 이미지입니다.
-- `dijk-heap1.png`: Dijkstra 알고리즘에서 최소 힙 구현 코드1 캡처 이미지입니다.
-- `dijk-heap2.png`: Dijkstra 알고리즘에서 최소 힙 구현 코드2 캡처 이미지입니다.
+- `dijk-heap1.png`: Dijkstra 알고리즘에서 최소 힙 구현 코드 캡처 이미지입니다.
 
 ## 사용 기술
 - 언어: C
