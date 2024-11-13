@@ -13,6 +13,8 @@ def caesar_cipher(message, shift):
             encrypted_message += char
     return encrypted_message
 
+#만약 대문자만 출력 시키고 싶으면.upper 쓰기.
+
 
 secret_message = input("Your secret message: ")
 secret_key = int(input("Your secret key: "))
