@@ -7,7 +7,6 @@
 
 // 랜덤 데이터 생성 함수
 void generateRandomData(int array[]) {
-    srand(time(NULL));
     for (int i = 0; i < SIZE; i++) {
         array[i] = rand() % 1000;
     }
@@ -36,8 +35,8 @@ void doSelectionSort(int array[]) {
         array[i] = array[minIdx];
         array[minIdx] = temp;
 
-        // 정렬 과정 출력: 10, 30, 50, 70 단위 및 마지막 단계 출력
-        if ((i + 1) == 10 || (i + 1) == 30 || (i + 1) == 50 || (i + 1) == 70 || i == SIZE - 2) {
+        // 정렬 과정 출력: 10부터 20단위 및 마지막 단계 출력
+        if ((i + 1) == 10 || ((i + 1) > 10 && ((i + 1) - 10) % 20 == 0) || i == SIZE - 2) {
             printf("Selection Sort Step %d:\n", i + 1);
             printArray(array);
         }
@@ -48,64 +47,71 @@ void doSelectionSort(int array[]) {
 
 // 삽입 정렬 (Insertion Sort)
 void doInsertionSort(int array[]) {
-    int i, j, key;
     int totalComparisons = 0;
 
-    for (i = 1; i < SIZE; i++) {
-        key = array[i];
-        j = i - 1;
+    for (int trial = 0; trial < TRIALS; trial++) {
+        int tempArray[SIZE];
+        generateRandomData(tempArray);
+        int comparisons = 0;
 
-        while (j >= 0 && array[j] > key) {
-            array[j + 1] = array[j];
-            j--;
-            totalComparisons++;
+        for (int i = 1; i < SIZE; i++) {
+            int key = tempArray[i];
+            int j = i - 1;
+
+            while (j >= 0) {
+                comparisons++;
+                if (tempArray[j] > key) {
+                    tempArray[j + 1] = tempArray[j];
+                    j--;
+                } else {
+                    break;
+                }
+            }
+            tempArray[j + 1] = key;
         }
-        array[j + 1] = key;
-    }
+        totalComparisons += comparisons;
 
-    printf("Insertion Sort - Average Comparisons: %d\n", totalComparisons / SIZE);
+    }
+    printf("Insertion Sort - Average Comparisons: %d\n", totalComparisons / TRIALS);
     printf("Insertion Sort Final Result:\n");
-    printArray(array);
+    printArray(array); // 마지막 정렬 결과 출력
 }
 
 // 버블 정렬 (Bubble Sort)
 void doBubbleSort(int array[]) {
-    int i, j, temp;
     int totalMoves = 0;
 
-    for (i = 0; i < SIZE - 1; i++) {
-        for (j = 0; j < SIZE - i - 1; j++) {
-            if (array[j] > array[j + 1]) {
-                // Swap
-                temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
-                totalMoves += 3; // 이동 횟수는 스왑마다 3으로 계산
+    for (int trial = 0; trial < TRIALS; trial++) {
+        int tempArray[SIZE];
+        generateRandomData(tempArray);
+        int moves = 0;
+
+        for (int i = 0; i < SIZE - 1; i++) {
+            for (int j = 0; j < SIZE - i - 1; j++) {
+                if (tempArray[j] > tempArray[j + 1]) {
+                    // Swap
+                    int temp = tempArray[j];
+                    tempArray[j] = tempArray[j + 1];
+                    tempArray[j + 1] = temp;
+                    moves += 3; // 이동 횟수는 스왑마다 3으로 계산
+                }
             }
         }
+        totalMoves += moves;
     }
 
-    printf("Bubble Sort - Average Moves: %d\n", totalMoves / SIZE);
+    printf("Bubble Sort - Average Moves: %d\n", totalMoves/TRIALS);
     printf("Bubble Sort Final Result:\n");
-    printArray(array);
+    printArray(array); // 마지막 정렬 결과 출력
 }
 
 int main() {
     int randomData[SIZE];
+    srand(time(NULL));
 
-    // 선택 정렬
     generateRandomData(randomData);
-    printf("Starting Selection Sort...\n");
     doSelectionSort(randomData);
-
-    // 데이터 재생성 후 삽입 정렬
-    generateRandomData(randomData);
-    printf("\nStarting Insertion Sort...\n");
     doInsertionSort(randomData);
-
-    // 데이터 재생성 후 버블 정렬
-    generateRandomData(randomData);
-    printf("\nStarting Bubble Sort...\n");
     doBubbleSort(randomData);
 
     return 0;
