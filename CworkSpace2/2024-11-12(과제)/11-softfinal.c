@@ -36,11 +36,13 @@ void doSelectionSort(int array[]) {
         tempArray[minIdx] = temp;
 
         // Step 출력 조건
-        if ((i + 1) == 10 || (i + 1) == 30 || (i + 1) == 50 || (i + 1) == 70 || (i + 1) == 90 || i == SIZE - 2) {
+        if ((i + 1) == 10 || ((i + 1) > 10 && ((i + 1) - 10) % 20 == 0) || i == SIZE - 2){
             printf("Step %d: ", i + 1);
             for (int k = 0; k < SIZE; k++) {
                 printf("%d ", tempArray[k]);
+                
             }
+            printf("\n");
             printf("\n");
         }
     }
