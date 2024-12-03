@@ -257,9 +257,9 @@ void printFirstAndLast20(int* array, int count) {
 float calculateAverageComparisonAVL(AVLNode* root, int* array, int size, int searchCount) {
     int totalComparisons = 0;
     for (int i = 0; i < searchCount; i++) {
-        int target = array[rand() % size];
+        int target = array[rand() % size]; //무작위 타겟 설정. 
         int compareCount = 0;
-        binarySearchAVL(root, target, &compareCount);
+        binarySearchAVL(root, target, &compareCount); //타겟을 찾는데 걸리는 비교 횟수 계산. 
         totalComparisons += compareCount;
     }
     return (float)totalComparisons / searchCount;
@@ -269,9 +269,9 @@ float calculateAverageComparisonAVL(AVLNode* root, int* array, int size, int sea
 float calculateAverageComparisonTwoThree(TwoThreeNode* root, int* array, int size, int searchCount) {
     int totalComparisons = 0;
     for (int i = 0; i < searchCount; i++) {
-        int target = array[rand() % size];
+        int target = array[rand() % size]; //무작위 타겟 설정. 
         int compareCount = 0;
-        binarySearchTwoThree(root, target, &compareCount);
+        binarySearchTwoThree(root, target, &compareCount); //타겟을 찾는데 걸리는 비교 횟수 계산. 
         totalComparisons += compareCount;
     }
     return (float)totalComparisons / searchCount;
