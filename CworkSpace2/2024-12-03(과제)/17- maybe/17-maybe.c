@@ -75,7 +75,7 @@ AVLNode* insertAVL(AVLNode* node, int key, int* inserted) {
     // 노드 높이 갱신
     node->height = 1 + (getHeight(node->left) > getHeight(node->right) ? getHeight(node->left) : getHeight(node->right));
 
-    int balance = getBalance(node);  // 균형 인수 계산
+    int balance = getBalance(node);  // 균형 인수 계산. 즉 노드의 균형이 맞는지.
 
     // LL 회전
     if (balance > 1 && key < node->left->key)
@@ -167,20 +167,23 @@ void insertTwoThree(TwoThreeNode **root, int key) {
             node->numKeys++;
         } else if (node->numKeys == 2) {  // 키가 두 개인 경우
             int tempKeys[3] = {node->keys[0], node->keys[1], key};
+            //3개의 키 정렬  중간 키를 새로운 루트 노드로 설정하기 위해서 2-3 트리는 3개의 키를 정렬후 중간 값을 올리는 과정이니까. 
             if (tempKeys[0] > tempKeys[1]) { int tmp = tempKeys[0]; tempKeys[0] = tempKeys[1]; tempKeys[1] = tmp; }
             if (tempKeys[1] > tempKeys[2]) { int tmp = tempKeys[1]; tempKeys[1] = tempKeys[2]; tempKeys[2] = tmp; }
             if (tempKeys[0] > tempKeys[1]) { int tmp = tempKeys[0]; tempKeys[0] = tempKeys[1]; tempKeys[1] = tmp; }
 
+            //중간값을 루트로 설정하고 나머지 두 값을 자식으로 설정. 
             *root = createTwoThreeNode(tempKeys[1]);
             (*root)->children[0] = createTwoThreeNode(tempKeys[0]);
             (*root)->children[1] = createTwoThreeNode(tempKeys[2]);
         }
         return;
     }
-
+    //이제 늘 우리가 아는 루트노드보다 작은지 큰지 검사하고 삽입하는거 
     if (key < node->keys[0]) {
         insertTwoThree(&node->children[0], key);  // 왼쪽 자식에 삽입
     } else if (node->numKeys == 1 || key < node->keys[1]) {
+        //현재 노드가 하나의 키만 가지고 있거나 두번째 키보다 작은경우. 
         insertTwoThree(&node->children[1], key);  // 중간 자식에 삽입
     } else {
         insertTwoThree(&node->children[2], key);  // 오른쪽 자식에 삽입
