@@ -29,7 +29,7 @@
 - 이는 퀵 정렬에서 흔히 발생하는 최악의 경우(피벗이 비균형적으로 선택되는 경우)를 줄여, 성능을 안정적으로 유지합니다.
 - 피벗을 배열 중간값으로 설정하면, 배열이 균등하게 분할될 가능성이 높아집니다.
 
-**예제 코드**:
+**예제 코드:**
 ```c
 int medianOfThree(int *array, int low, int high) {
     int mid = low + (high - low) / 2;
@@ -50,6 +50,7 @@ int medianOfThree(int *array, int low, int high) {
     }
     return array[high];
 }
+```
 
 ---
 
