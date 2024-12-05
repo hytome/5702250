@@ -54,9 +54,11 @@ void QuickSort(int *array, int low, int high) {
 
 // Median-of-Three 피벗 선택 함수
 // - 세 개의 요소 중 중앙값을 선택하여 피벗으로 사용합니다.
+//기존의 퀵 정렬에서 피벗을 선택하는 방법을 최적화한 것
 int medianOfThree(int *array, int low, int high) {
     int mid = low + (high - low) / 2;
     
+    //세 값을 비교하여 중앙 값을 찾는 과정입니다.
     if (array[low] > array[mid]) {
         // 스왑 array[low]와 array[mid]
         int temp = array[low];
@@ -88,6 +90,7 @@ int medianOfThree(int *array, int low, int high) {
 
 // 파티션 함수 (퀵 정렬의 핵심)
 // - 피벗을 기준으로 배열을 두 부분으로 나눕니다.
+//작은 값은 왼쪽 큰 값은 오른쪽으로 정렬하는 과정입니다.
 int partition(int *array, int low, int high) {
     int pivot = array[high]; // Median-of-Three로 선택된 피벗
     int i = low - 1; // 작은 요소의 인덱스
