@@ -15,14 +15,14 @@ def adding_game():
         try:
             if int(user_answer) == correct_answer:
                 points += 1
-                print("Correct!")
+                print("정답입니다!")
             else:
                 incorrect_attempts += 1
-                print(f"Wrong! The answer was {correct_answer}")
+                print(f"틀렸습니다! 정답은 {correct_answer}입니다.")
         except ValueError:
             incorrect_attempts += 1
-            print(f"Wrong! The answer was {correct_answer}")
+            print(f"틀렸습니다! 정답은 {correct_answer}입니다.")
 
-    print(f"You earned {points} total points")
+    print(f"총 {points}점을 획득하셨습니다.")
 
 adding_game()
