@@ -1,0 +1,15 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppvsdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "console": "externalTerminal",
+      "cwd": "g:/5702250/CworkSpace2/2024-12-13(과제)/17-compareAVL",
+      "program": "g:/5702250/CworkSpace2/2024-12-13(과제)/17-compareAVL/build/Debug/outDebug"
+    }
+  ]
+}
