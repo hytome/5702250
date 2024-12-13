@@ -1,2 +1,2 @@
-def count_uniques(list1, list2, list3):
-    return len(set([*list1, *list2, *list3]))
+def count_unique(a, b, c):
+    return len(set([a, b, c]))
