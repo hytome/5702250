@@ -1,0 +1,15 @@
+/Users/heohyeon/Documents/GitHub/5702250/C#/2025-03-05/project0305/bin/Debug/net9.0/project0305
+/Users/heohyeon/Documents/GitHub/5702250/C#/2025-03-05/project0305/bin/Debug/net9.0/project0305.deps.json
+/Users/heohyeon/Documents/GitHub/5702250/C#/2025-03-05/project0305/bin/Debug/net9.0/project0305.runtimeconfig.json
+/Users/heohyeon/Documents/GitHub/5702250/C#/2025-03-05/project0305/bin/Debug/net9.0/project0305.dll
+/Users/heohyeon/Documents/GitHub/5702250/C#/2025-03-05/project0305/bin/Debug/net9.0/project0305.pdb
+/Users/heohyeon/Documents/GitHub/5702250/C#/2025-03-05/project0305/obj/Debug/net9.0/project0305.GeneratedMSBuildEditorConfig.editorconfig
+/Users/heohyeon/Documents/GitHub/5702250/C#/2025-03-05/project0305/obj/Debug/net9.0/project0305.AssemblyInfoInputs.cache
+/Users/heohyeon/Documents/GitHub/5702250/C#/2025-03-05/project0305/obj/Debug/net9.0/project0305.AssemblyInfo.cs
+/Users/heohyeon/Documents/GitHub/5702250/C#/2025-03-05/project0305/obj/Debug/net9.0/project0305.csproj.CoreCompileInputs.cache
+/Users/heohyeon/Documents/GitHub/5702250/C#/2025-03-05/project0305/obj/Debug/net9.0/project0305.sourcelink.json
+/Users/heohyeon/Documents/GitHub/5702250/C#/2025-03-05/project0305/obj/Debug/net9.0/project0305.dll
+/Users/heohyeon/Documents/GitHub/5702250/C#/2025-03-05/project0305/obj/Debug/net9.0/refint/project0305.dll
+/Users/heohyeon/Documents/GitHub/5702250/C#/2025-03-05/project0305/obj/Debug/net9.0/project0305.pdb
+/Users/heohyeon/Documents/GitHub/5702250/C#/2025-03-05/project0305/obj/Debug/net9.0/project0305.genruntimeconfig.cache
+/Users/heohyeon/Documents/GitHub/5702250/C#/2025-03-05/project0305/obj/Debug/net9.0/ref/project0305.dll
