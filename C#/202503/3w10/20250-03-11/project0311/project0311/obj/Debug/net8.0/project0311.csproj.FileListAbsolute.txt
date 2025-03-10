@@ -1,0 +1,15 @@
+G:\5702250\C#\202503\3w10\20250-03-11\project0311\project0311\bin\Debug\net8.0\project0311.exe
+G:\5702250\C#\202503\3w10\20250-03-11\project0311\project0311\bin\Debug\net8.0\project0311.deps.json
+G:\5702250\C#\202503\3w10\20250-03-11\project0311\project0311\bin\Debug\net8.0\project0311.runtimeconfig.json
+G:\5702250\C#\202503\3w10\20250-03-11\project0311\project0311\bin\Debug\net8.0\project0311.dll
+G:\5702250\C#\202503\3w10\20250-03-11\project0311\project0311\bin\Debug\net8.0\project0311.pdb
+G:\5702250\C#\202503\3w10\20250-03-11\project0311\project0311\obj\Debug\net8.0\project0311.GeneratedMSBuildEditorConfig.editorconfig
+G:\5702250\C#\202503\3w10\20250-03-11\project0311\project0311\obj\Debug\net8.0\project0311.AssemblyInfoInputs.cache
+G:\5702250\C#\202503\3w10\20250-03-11\project0311\project0311\obj\Debug\net8.0\project0311.AssemblyInfo.cs
+G:\5702250\C#\202503\3w10\20250-03-11\project0311\project0311\obj\Debug\net8.0\project0311.csproj.CoreCompileInputs.cache
+G:\5702250\C#\202503\3w10\20250-03-11\project0311\project0311\obj\Debug\net8.0\project0311.sourcelink.json
+G:\5702250\C#\202503\3w10\20250-03-11\project0311\project0311\obj\Debug\net8.0\project0311.dll
+G:\5702250\C#\202503\3w10\20250-03-11\project0311\project0311\obj\Debug\net8.0\refint\project0311.dll
+G:\5702250\C#\202503\3w10\20250-03-11\project0311\project0311\obj\Debug\net8.0\project0311.pdb
+G:\5702250\C#\202503\3w10\20250-03-11\project0311\project0311\obj\Debug\net8.0\project0311.genruntimeconfig.cache
+G:\5702250\C#\202503\3w10\20250-03-11\project0311\project0311\obj\Debug\net8.0\ref\project0311.dll
