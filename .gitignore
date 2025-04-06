@@ -1,1 +1,13 @@
 .vs/
+*.user
+*.suo
+*.cache
+*.log
+*.dbmdl
+
+bin/
+obj/
+
+
+*.swp
+*.tmp
