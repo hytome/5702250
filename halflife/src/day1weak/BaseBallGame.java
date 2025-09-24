@@ -27,9 +27,20 @@ public class BaseBallGame {
                     break;
                 }
                 if(input.length()!=3 || !input.matches("[1-9]{3}")){
-                    System.out.println("올바른 숫자를 입력해주세요.");
+                    System.out.println("1과 9사이의 서로 다른 숫자를 입력해주세요.");
+                    continue;
+                }
+                Set<Character> checkDup = new HashSet<>(); //이것은 무슨 기능인가..
+                for(char c:input.toCharArray()) checkDup.add(c);{
+                    if(checkDup.size()!=3){
+                        System.out.println("중복 없는 숫자를 입력해라이!");
+                        continue;
+                    }
+                    tries++;
+                    int strike = 0, ball= 0;
 
                 }
+
             }
         }
     }
