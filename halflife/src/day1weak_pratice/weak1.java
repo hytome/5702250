@@ -1,4 +1,4 @@
-package day1weak;
+package day1weak_pratice;
 
 public class weak1 {
     public static void main(String[] args) {
